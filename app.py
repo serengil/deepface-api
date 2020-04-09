@@ -4,7 +4,7 @@ import uuid
 import json
 import time
 
-#from deepface import DeepFace
+from deepface import DeepFace
 
 #------------------------------
 
@@ -17,7 +17,6 @@ app = Flask(__name__)
 def index():
 	return '<h1>Hello, world!</h1>'
 
-"""
 @app.route('/analyze', methods=['POST'])
 def analyze():
 
@@ -58,7 +57,6 @@ def analyze():
 	resp_obj["seconds"] = toc-tic
 
 	return resp_obj
-"""
 
 @app.route('/verify', methods=['POST'])
 def verify():
@@ -106,8 +104,8 @@ def verify():
 	print("Input request of ", trx_id, " has ",len(instances)," pairs to verify")
 	
 	#--------------------------
-	#resp_obj = DeepFace.verify(instances, model_name = model_name, distance_metric = distance_metric)
-	resp_obj = json.loads("{\"success\": true}")
+	resp_obj = DeepFace.verify(instances, model_name = model_name, distance_metric = distance_metric)
+	#resp_obj = json.loads("{\"success\": true}")
 
 	toc =  time.time()
 
