@@ -107,7 +107,7 @@ def verify():
 	
 	#--------------------------
 	#resp_obj = DeepFace.verify(instances, model_name = model_name, distance_metric = distance_metric)
-	resp_obj = json.loads("\"success\": true")
+	resp_obj = json.loads("{\"success\": true}")
 
 	toc =  time.time()
 
